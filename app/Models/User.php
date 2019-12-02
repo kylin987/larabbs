@@ -37,4 +37,9 @@ class User extends Authenticatable implements MustVerifyEmailContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    //和话题模型绑定关联，用户与话题中间的关系是 一对多 的关系
+    public function topics(){
+        return $this->hasMany(Topic::class);
+    }
 }
