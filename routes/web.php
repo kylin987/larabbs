@@ -43,6 +43,12 @@ Route::get('topics/{topic}/{slug?}','TopicsController@show')->name('topics.show'
 //栏目相关
 Route::resource('categories','CategoriesController', ['only'=>['show']]);
 
+//上传图片
 Route::post('upload_image', 'TopicsController@uploadImage')->name('topics.upload_image');
 
+//回复帖子
 Route::resource('replies', 'RepliesController', ['only' => ['store', 'destroy']]);
+
+//通知
+Route::resource('notifications', 'NotificationsController', ['only' => ['index']]);
+
